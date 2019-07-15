@@ -14,13 +14,13 @@
       <p class="text-lg sm:text-xl"></p>
 
       <div class="flex justify-center items-center py-6">
-        <a href="https://www.twitter.com/djiit"
+        <a href="https://www.twitter.com/djiit" target="_blank"
           ><font-awesome :icon="['fab', 'twitter']" size="4x" class="m-4"
         /></a>
-        <a href="https://www.github.com/djiit"
+        <a href="https://www.github.com/djiit" target="_blank"
           ><font-awesome :icon="['fab', 'github']" size="4x" class="m-4"
         /></a>
-        <a href="https://www.linkedin.com/in/julientanay"
+        <a href="https://www.linkedin.com/in/julientanay" target="_blank"
           ><font-awesome :icon="['fab', 'linkedin']" size="4x" class="m-4"
         /></a>
       </div>
