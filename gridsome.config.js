@@ -7,15 +7,16 @@
 const tailwind = require("tailwindcss");
 const purgecss = require("@fullhuman/postcss-purgecss");
 
+const config = require("./config");
+
 const postcssPlugins = [tailwind()];
 
 if (process.env.NODE_ENV === "production") postcssPlugins.push(purgecss());
 
 module.exports = {
-  siteName: "Julien Tanay",
-  siteDescription:
-    "About Software Development, DevOps culture, creative thinking and getting shit done.",
-  siteUrl: "https://www.julientanay.com",
+  siteName: config.author,
+  siteDescription: config.description,
+  siteUrl: config.url,
   plugins: [
     {
       use: "@gridsome/source-filesystem",
@@ -45,14 +46,14 @@ module.exports = {
         contentTypeName: "Post",
         feedOptions: {
           title: "Gridsome Portfolio Starter Blog",
-          feed_url: "https://www.julientanay.com/blog/rss.xml",
-          site_url: "https://www.julientanay.com/",
+          feed_url: `${config.url}/blog/rss.xml`,
+          site_url: config.url,
         },
         feedItemOptions: node => ({
           title: node.title,
           description: node.summary,
-          url: "https://www.julientanay.com/blog" + node.path,
-          author: "Julien Tanay",
+          url: `${config.url}/blog${node.path}`,
+          author: config.author,
           date: node.date,
         }),
         output: {

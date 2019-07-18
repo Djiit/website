@@ -40,7 +40,37 @@ query Post ($path: String!) {
 export default {
   metaInfo() {
     return {
-      title: this.$page.post.title
+      title: this.$page.post.title,
+      meta: [
+        {
+          name: "description",
+          key: "description",
+          content: this.$page.post.summary
+        },
+        {
+          name: "twitter:card",
+          key: "twitter:card",
+          content: "summary_large_image"
+        },
+        {
+          name: "twitter:description",
+          key: "twitter:description",
+          content: this.$page.post.summary
+        },
+        {
+          name: "twitter:title",
+          key: "twitter:title",
+          content: this.$page.post.title
+        },
+        { name: "twitter:site", key: "twitter:site", content: "@djiit" },
+        {
+          name: "twitter:image",
+          key: "twitter:image",
+          content: this.getCoverImage
+        },
+        { name: "twitter:creator", key: "twitter:creator", content: "@djiit" }
+      ],
+      script: [{ src: "https://platform.twitter.com/widgets.js", async: true }]
     };
   }
 };
