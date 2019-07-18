@@ -1,7 +1,7 @@
 ---
 title: "Docker pour les développeurs: Environment as Code"
 date: 2015-08-02
-summary: Envie d'exporter ses belles playlists en dehors de Whyd ? Introducing "WhydToGo".
+summary: Utiliser Docker comme un environnement de développement complet.
 tags: [Docker, Docker-Compose, DevOps, GiantSwarm, Rancher]
 ---
 
