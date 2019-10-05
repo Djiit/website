@@ -1,21 +1,13 @@
-// Server API makes it possible to hook into various parts of Gridsome
-// on server-side and add custom data to the GraphQL data layer.
-// Learn more: https://gridsome.org/docs/server-api
-
-// Changes here require a server restart.
-// To restart press CTRL + C in terminal and run `gridsome develop`
-
 const fs = require("fs");
 const path = require("path");
 const pick = require("lodash.pick");
 
 module.exports = function(api, options) {
   api.loadSource(store => {
-    // Use the Data store API here: https://gridsome.org/docs/data-store-api
     const projects = require("./src/assets/projects.json");
 
     const contentType = store.addContentType({
-      typeName: "Project"
+      typeName: "Project",
     });
 
     for (const project of projects) {
@@ -26,13 +18,12 @@ module.exports = function(api, options) {
         role: project.role,
         client: project.client || "",
         tags: project.tags,
-        description: project.description
+        description: project.description,
       });
     }
   });
 
   api.beforeBuild(({ config, store }) => {
-    // Generate an index file for Fuse to search Posts
     const { collection } = store.getContentType("Post");
 
     const posts = collection.data.map(post => {
@@ -42,7 +33,7 @@ module.exports = function(api, options) {
     const output = {
       dir: "./static",
       name: "search.json",
-      ...options.output
+      ...options.output,
     };
 
     const outputPath = path.resolve(process.cwd(), output.dir);
