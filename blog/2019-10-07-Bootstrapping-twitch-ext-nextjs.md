@@ -21,7 +21,7 @@ npx create-next-app my-extension # or 'yarn create-next-app my-extension'
 
 Allright ! Now, `cd` into your new project folder and open a text editor of your choice. In a NextJS project, each page of your app sits in the `pages` folder (sic).
 
-Twitch extensions are divided into pages, too, . As a simple example, let's assume we are building a *panel* extension (see [this page](https://dev.twitch.tv/docs/extensions/): "A panel extension appears in the panel area below the video player. Panel Extensions stay active even when the channel is not live."). Rename `pages/index.html` into `pages/panel.html`.
+Twitch extensions are divided into pages, so we will need to tell NextJS to handle these separates pages. It is a bit like Webpack's entrypoints. As a simple example, let's assume we are building a *panel* extension (see [this page](https://dev.twitch.tv/docs/extensions/): "A panel extension appears in the panel area below the video player. Panel Extensions stay active even when the channel is not live."). Rename `pages/index.html` into `pages/panel.html`.
 
 Create a new `next.config.js` file at the root of your project like this one :
 
