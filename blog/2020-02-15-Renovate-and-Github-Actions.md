@@ -1,6 +1,6 @@
 ---
 title: Keep your dependencies up to date with Renovate and Github Actions
-date: 2019-02-15
+date: 2020-02-15
 summary: Never forget to update a dependency again with Renovate and Github Actions.
 tags: [Github Actions, Renovate, DevOps, Dependencies Management]
 ---
@@ -64,7 +64,7 @@ Here we are defining a simple workflow triggered periiodically by Github Actions
 
 Simple, right ? We are just passing your newly created PAT and your repository's name. Remember to always pin the versions (tags, actually) of the Docker images you use, specially if it's a public one. You really want to avoid bad surprises if something gets broken some day.
 
-You can add as many environment variables as you want; check the [Renovate Self-Hosted Coonfiguration Docs](https://docs.renovatebot.com/self-hosted-configuration/) for the complete variables list.
+You can add as many environment variables as you want; check the [Renovate Self-Hosted Configuration Docs](https://docs.renovatebot.com/self-hosted-configuration/) for the complete variables list.
 
 Now, Github Actions will take care of running this job every day at 08 AM (feel free to customize the schedule option at will).
 
