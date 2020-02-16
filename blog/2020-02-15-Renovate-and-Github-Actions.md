@@ -5,17 +5,17 @@ summary: Never forget to update a dependency again with Renovate and Github Acti
 tags: [Github Actions, Renovate, DevOps, Dependencies Management]
 ---
 
-With a little help from [Renovate](https://renovate.whitesourcesoftware.com/) and the powerfull [Github Actions](https://github.com/features/actions), it's becoming really easy to keep your dependencies up-to-date automatically. Let's see how we can easily setup an automated workflows to handle this for us for free!
+With a little help from [Renovate](https://renovate.whitesourcesoftware.com/) and the powerful [Github Actions](https://github.com/features/actions), it's becoming really easy to keep your dependencies up-to-date automatically. Let's see how we can easily setup an automated workflow to handle this for us for free!
 
 # Renovate all the things
 
 In a few words : Renovate automatically keeps your dependencies up to date by regularly checking for available updates and opening PRs on your repository, using all your already available CI mechanisms.
 
-Seems great, right ? Let's see how that works :
+Seems great, right ? Let's see how it works :
 
 The first time you run it, it will try to detect which language you use, or if you have a Dockerfile, and so on. It will then create a PR with an initial configuration (in a `renovate.json`) so you can get started quickly.
 
-Then, it will open PRs with updated dependencies. If you have some CI system testing your PRs, you will quickly see if the proposed changes passes the tests or not. If everything is green, you can safely merge the PR ! You can even tell Renovate to automatically merge the PR the next time it scans your repository if all tests pass.
+Then, it will open PRs with updated dependencies. If you have some CI system testing your PRs, you will quickly see if the proposed changes passes the tests or not. If everything is green, you can safely merge the PR ! You can even tell Renovate to automatically merge the PR, if all tests pass the next time it scans your repository.
 
 ![Example of Renovate PR](./images/renovate-example-pr.png)
 
@@ -25,7 +25,7 @@ Of course, you can fine tune Renovate's behavior, e.g. to auto-merge patch updat
 
 GitHub Actions is a great tool to automate repetitive tasks on your repository, like PR triage or small review tasks -- it can also act like a complete CI solution (that's what we do at [Dior.com](https://www.dior.com)!). Plus, it comes with a generous free plan!
 
-First, we need to give Renovate some permissions to "scans" your repository.
+First, we need to give Renovate some permissions to "scan" your repository.
 
 Go to **Settings** > **Developer settings** > **Personal access tokens** and Create a Personal Acces Token (PAT) with the `repo` scope.
 
@@ -57,7 +57,7 @@ jobs:
           RENOVATE_AUTOMERGE: true # optional, see below
 ```
 
-Here we are defining a simple workflow triggered periiodically by Github Actions. It contains one job which does the following actions :
+Here we are defining a simple workflow triggered periodically by Github Actions. It contains one job which does the following actions :
 
 1. Clone your repository
 2. Run Renovate

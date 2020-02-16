@@ -27,18 +27,18 @@ module.exports = {
           tags: {
             typeName: "Tag",
             route: "blog/tag/:id",
-            create: true,
-          },
+            create: true
+          }
         },
         remark: {
           plugins: [
             [
               "gridsome-plugin-remark-shiki",
-              { theme: "Material-Theme-Palenight", skipInline: true },
-            ],
-          ],
-        },
-      },
+              { theme: "Material-Theme-Palenight", skipInline: true }
+            ]
+          ]
+        }
+      }
     },
     {
       use: "gridsome-plugin-rss",
@@ -47,20 +47,20 @@ module.exports = {
         feedOptions: {
           title: "Gridsome Portfolio Starter Blog",
           feed_url: `${config.url}/blog/rss.xml`,
-          site_url: config.url,
+          site_url: config.url
         },
         feedItemOptions: node => ({
           title: node.title,
           description: node.summary,
           url: `${config.url}/blog${node.path}`,
           author: config.author,
-          date: node.date,
+          date: node.date
         }),
         output: {
           dir: "./static",
-          name: "rss.xml",
-        },
-      },
+          name: "rss.xml"
+        }
+      }
     },
     {
       use: "@gridsome/plugin-sitemap",
@@ -69,24 +69,24 @@ module.exports = {
         config: {
           "/blog/*": {
             changefreq: "weekly",
-            priority: 0.5,
-          },
-        },
-      },
-    },
+            priority: 0.5
+          }
+        }
+      }
+    }
   ],
   transformers: {
     remark: {
       externalLinksTarget: "_blank",
       externalLinksRel: ["nofollow", "noopener", "noreferrer"],
-      anchorClassName: "icon icon-link",
-    },
+      anchorClassName: "icon icon-link"
+    }
   },
   css: {
     loaderOptions: {
       postcss: {
-        plugins: postcssPlugins,
-      },
-    },
-  },
+        plugins: postcssPlugins
+      }
+    }
+  }
 };
