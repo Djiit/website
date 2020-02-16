@@ -8,7 +8,7 @@
         class="container mx-auto flex flex-wrap justify-between items-center py-8"
       >
         <div>
-          <g-link to="/">{{ $static.metaData.siteName }}</g-link>
+          <g-link to="/">{{ $static.metadata.siteName }}</g-link>
         </div>
         <div class="block lg:hidden">
           <button
@@ -179,7 +179,7 @@
 
 <static-query>
 query {
-  metaData {
+  metadata {
     siteName
   }
 }

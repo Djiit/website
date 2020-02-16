@@ -5,7 +5,7 @@
     >
       <div class="text-3xl font-bold w-full sm:w-3/5 text-center sm:text-left">
         <div class="text-blue-700 leading-tight">
-          {{ $static.metaData.siteDescription }}
+          {{ $static.metadata.siteDescription }}
         </div>
       </div>
     </div>
@@ -223,7 +223,7 @@
 
 <static-query>
 query {
-  metaData {
+  metadata {
     siteName
     siteDescription
   }

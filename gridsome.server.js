@@ -6,8 +6,8 @@ module.exports = function(api, options) {
   api.loadSource(store => {
     const projects = require("./src/assets/projects.json");
 
-    const contentType = store.addContentType({
-      typeName: "Project",
+    const contentType = store.addCollection({
+      typeName: "Project"
     });
 
     for (const project of projects) {
@@ -18,13 +18,13 @@ module.exports = function(api, options) {
         role: project.role,
         client: project.client || "",
         tags: project.tags,
-        description: project.description,
+        description: project.description
       });
     }
   });
 
   api.beforeBuild(({ config, store }) => {
-    const { collection } = store.getContentType("Post");
+    const { collection } = store.getCollection("Post");
 
     const posts = collection.data.map(post => {
       return pick(post, ["title", "path", "summary"]);
@@ -33,7 +33,7 @@ module.exports = function(api, options) {
     const output = {
       dir: "./static",
       name: "search.json",
-      ...options.output,
+      ...options.output
     };
 
     const outputPath = path.resolve(process.cwd(), output.dir);
