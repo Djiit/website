@@ -24,10 +24,10 @@ export const logger = pino({
 
 What's inside ?
 
-- **JSON logging**: It logs everything in a JSON format. Having JSON logs is extremelu useful when you want to parse them with e.g. [Papertrail](https://papertrailapp.com) or any other log-management service.
+- **JSON logging**: It logs everything in a JSON format. Having JSON logs is extremely useful when you want to parse them with e.g. [Papertrail](https://papertrailapp.com) or any other log-management service.
 
-- **Debug Context**: It supports easily adding context objects with your message (thanks, Pino!).
-- **Great Developer Experience**: When running on your local machine, it will display colored, well-spaced logs for a better developer experience.
+- **Debug Context**: It supports adding context objects with your message (yeah, Pino is really awesome).
+- **Great Developer Experience**: When running on your local machine, it will display colored, well-spaced logs for a better developer experience, thanks to `pino-pretty`.
 - **Default log level**: Using default level "info" avoid spamming a new environment with tons of logs if you forget to set the variable.
 - **Nice trick**: The `LOG_PRETTY_PRINT` variable allows us to enable pretty-printing even in production environement. Useful for quick debugging tasks.
 - **Optional - ECS format**: I often use Elastic Common Schema as a logging format. It comes with great defaults, and is of course ideal if you are sending your logs to an ELK stack.
