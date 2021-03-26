@@ -1,8 +1,9 @@
 ---
 title: Documenting your Flask-powered API like a boss
 date: 2017-11-27
-summary: How we built a solid documentation for our Flask-powered micro-services APIs.
-tags: [Python, Flask, OpenAPI, Swagger, Documentation]
+description: How we built a solid documentation for our Flask-powered micro-services APIs.
+tags: Python, Flask, OpenAPI, Swagger, Documentation
+author: Julien
 ---
 
 Flask is a very popular and powerful framework for building web applications. Over the last years, people used it to create REST APIs that work well with decoupled, modern front-end applications.
@@ -66,7 +67,7 @@ def my_route(gist_id):
     """ Cool Foo-Bar route.
     ---
     get:
-        summary: Foo-Bar endpoint.
+        description: Foo-Bar endpoint.
         description: Get a single foo with the bar ID.
         parameters:
             - name: bar_id

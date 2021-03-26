@@ -1,8 +1,9 @@
 ---
 title: Using Google SSO with Elastic Cloud
 date: 2020-09-07
-summary: Protect your Elastic Cloud instances with a simple Google SSO configuration
-tags: [ELK, Google, SSO, Elastic CLoud, OIDC]
+description: Protect your Elastic Cloud instances with a simple Google SSO configuration
+tags: ELK, Google, SSO, Elastic CLoud, OIDC
+author: Julien
 ---
 
 Last week, I had to add SSO layers to some of our managed monitoring stacks. While it only required some simple steps, I spent most of my time looking for the correct documentation or up-to-date examples on the internet and ended up writing this little guide. I hope it will save you some extra time !
@@ -16,13 +17,13 @@ First, create or re-use an OAuth client ID from your Google Cloud Console. Add :
 - Your Kibana Endpoint as an Authorized Javascript origin ;
 - `<kibana_endpoint>/api/security/v1/oidc` as an Authorized redirect URI.
 
-![elk_google_oidc.png](./images/elk_google_oidc.png)
+![elk_google_oidc.png](/images/elk_google_oidc.png)
 
 ## ElasticSearch configuration
 
 First, add the client secret as an ElasticSearch secret. Go to your deployment and use the “Security” menu entry, then add a new Elasticsearch Keystore item.
 
-![elk_sec.png](./images/elk_sec.png)
+![elk_sec.png](/images/elk_sec.png)
 
 The value should be the client secret from Google.
 
@@ -30,7 +31,7 @@ The value should be the client secret from Google.
 - type : `Single string`
 - value : `<client_secret>`
 
-![elk_create_secret.png](./images/elk_create_secret.png)
+![elk_create_secret.png](/images/elk_create_secret.png)
 
 Now, we need to configure ElasticSearch. Add this snippet in your current configuration (replace `<kibana_endpoint>` and `<client_id>` by actual values before saving!) :
 
@@ -74,12 +75,12 @@ Now, we just need to make some changes to the existing roles.
 
 First, go on your Kibana instance and head for the Stack Management menu. From here, create a new role for filebeat indices. Give this new role permissions to `read` `filebeat-*` indices. Please note that I'm assuming you are using filebeat to collect logs from your services. Just make sure this new role can read the indices where your logs data are stored.
 
-![elk_create_role.png](./images/elk_create_role.png)
+![elk_create_role.png](/images/elk_create_role.png)
 
 Then, create a mapping for this new roles and your OIDC users. Choose an arbitrary name, e.g. `CLOUD_OIDC_TO_KIBANA_ADMIN`.
 Make sure you include `kibana_admin`, `apm-user`and `filebeat_user`, the newly created role.
 
-![elk_role_mapping.png](./images/elk_role_mapping.png)
+![elk_role_mapping.png](/images/elk_role_mapping.png)
 
 ## Test it!
 

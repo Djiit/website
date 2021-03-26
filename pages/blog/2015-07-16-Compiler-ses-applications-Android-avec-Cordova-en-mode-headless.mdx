@@ -1,8 +1,9 @@
 ---
 title: Compiler ses applications Android avec Cordova en mode headless
 date: 2015-07-16
-summary: Retour d'expérience sur l'installation du SDK Android sur une Debian 64bits fraîchement installée.
-tags: [Intégration Continue, Android, SDK, Cordova, Jenkins, headless]
+description: Retour d'expérience sur l'installation du SDK Android sur une Debian 64bits fraîchement installée.
+tags: Intégration Continue, Android, SDK, Cordova, Jenkins, headless
+author: Julien
 ---
 
 On trouve ça et là des tutoriaux pour installer le SDK Android et compiler ses applications avec Cordova.
@@ -100,14 +101,16 @@ Note : Cordova utilise Gradle pour build les projets; le coup du proxy peut-êt
 
 (Optionnel) Indiquer un proxy HTTP et HTTPS dans le fichier `~/.gradle/gradle.properties` (pensez à remplacer les variables par de vraies valeurs) :
 
-    echo " systemProp.http.proxyHost=<proxy_host>
-    systemProp.http.proxyPort=<proxy_port>
-    systemProp.http.proxyUser=<proxy_user>
-    systemProp.http.proxyPassword=<proxy_password>
-    systemProp.https.proxyHost=<proxy_host>
-    systemProp.https.proxyPort=<proxy_port>
-    systemProp.https.proxyUser=<proxy_user>
-    systemProp.https.proxyPassword=<proxy_password> " > ~/.gradle/gradle.properties
+```bash
+echo " systemProp.http.proxyHost=<proxy_host>
+systemProp.http.proxyPort=<proxy_port>
+systemProp.http.proxyUser=<proxy_user>
+systemProp.http.proxyPassword=<proxy_password>
+systemProp.https.proxyHost=<proxy_host>
+systemProp.https.proxyPort=<proxy_port>
+systemProp.https.proxyUser=<proxy_user>
+systemProp.https.proxyPassword=<proxy_password> " > ~/.gradle/gradle.properties
+```
 
 Placez-vous dans votre dossier de projet Cordova (ou créez-en un avec `cordova create MonProjet`). Le petit bout de code suivant assure le build complet d'un APK signé. Il utilise 3 variables d'environnement pour récupérer l'emplacement de votre keystore (`ANDROID_KEYSTORE`), le mot de passe associé (`ANDROID_STORE_PASS`) et la keypass spécifique à votre application (`ANDROID_KEY_PASS`). L’avantage direct de ces variables est de ne pas avoir à stocker dans le projet (et donc souvent dans un dépôt de versionning) des informations sensibles comme les passwords ou encore le fichier `.keystore`. En plus, rien de plus facile pour Jenkins ou un autre outil d'intégration continue de passer ces variables avant le lancement d'un job de compilation.
 

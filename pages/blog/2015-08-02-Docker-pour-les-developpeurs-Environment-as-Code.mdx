@@ -1,12 +1,13 @@
 ---
 title: "Docker pour les développeurs: Environment as Code"
 date: 2015-08-02
-summary: Utiliser Docker comme un environnement de développement complet.
-tags: [Docker, Docker-Compose, DevOps, GiantSwarm, Rancher]
+description: Utiliser Docker comme un environnement de développement complet.
+tags: Docker, Docker-Compose, DevOps, GiantSwarm, Rancher
+author: Julien
 ---
 
 
-![Ajout d'un dépôt](./images/docker-logo.png)
+![Ajout d'un dépôt](/images/docker-logo.png)
 
 Docker, ce game changer qu'un certain Solomon Hykes venait (bien trop) rapidement presenter en pleine PyCon UK 2013 ([souvenirs](https://www.youtube.com/watch?v=wW9CAH9nSLs)) change radicalement la vie des (dev)ops. Mais pour un dev' tout court, quelle utilité ?
 Spoiler Alert : Docker (et Docker-Compose) va permettre de déclarer de manière simple et portable un ensemble de services tiers liés à notre application. Chaque dev peut alors mettre en route en quelques instants un environnement de développement _iso_ à celui du reste de son équipe. Ou du reste du monde. Portabilité bonjour.
@@ -56,7 +57,7 @@ Cela change radicalement des worklows de développement où l'on passait un temp
 
 Même avec l'avènement de solutions comme Vagrant, on avait toujours besoin d'avoir un moteur de machines virtuelles (VirtualBox, VMWare, etc...). Docker nous facilite grandement la vie et gère toute la complexité de partager un environnement de dev de bout en bout.
 
-En production, la donne est légèrement différente (car les problématiques ne sont pas les mêmes). Mais les solutions compatibles avec ce workflow de développement existent ! Tous les grands _cloud providers_ proposent déjà un service de _hosting_ de conteneurs; et chacun applique sa propre sauce d'orchestration des services. [GiantSwarm](https://giantswarm.io/), un _cloud provider_ proposant une offre de PaaS pensée pour gérer des conteneurs possède son propre vocabulaire de summary des services : c'est un dernier fichier YAML à joindre à son code et "pouf" votre application est déployée en poussant votre code - "Heroku-style", mais on parle ici de _tous_ les composants (ou micro-services) de votre application, même les services tiers comme la BDD, etc...).
+En production, la donne est légèrement différente (car les problématiques ne sont pas les mêmes). Mais les solutions compatibles avec ce workflow de développement existent ! Tous les grands _cloud providers_ proposent déjà un service de _hosting_ de conteneurs; et chacun applique sa propre sauce d'orchestration des services. [GiantSwarm](https://giantswarm.io/), un _cloud provider_ proposant une offre de PaaS pensée pour gérer des conteneurs possède son propre vocabulaire de description des services : c'est un dernier fichier YAML à joindre à son code et "pouf" votre application est déployée en poussant votre code - "Heroku-style", mais on parle ici de _tous_ les composants (ou micro-services) de votre application, même les services tiers comme la BDD, etc...).
 
 NOTE: Note: GiantSwarm est actuellement en phase d'early access. J'ai la chance de pouvoir tester leurs services et je vous assure que le mot déploiement revêt un sens nouveau depuis que je teste leur plate-forme. Allez y faire un tour.
 

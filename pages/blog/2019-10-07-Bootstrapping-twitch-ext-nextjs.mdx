@@ -1,8 +1,9 @@
 ---
 title: Bootstrapping a Twitch Extension with NextJS
 date: 2019-10-07
-summary: How to use NextJS to build Twitch extensions.
-tags: [Javascript, NextJS, Twitch Extension, React]
+description: How to use NextJS to build Twitch extensions.
+tags: Javascript, NextJS, Twitch Extension, React
+author: Julien
 ---
 
 Twitch Extension allow broadcasters to engage their audience in many different ways. It's bringing a whole new level of interactivity to your ordinary gaming channel. Under the hood, it is a collection of HTML/JS pages hosted by Twitch. As is it mainly tiny JS apps, you can bring your favorite tools with you.
@@ -80,15 +81,15 @@ Finally, add the following convenience scripts to your `package.json` :
 
 Using the [Twitch Developer Rig](https://dev.twitch.tv/docs/extensions/rig/), you can easily use this NextJS setup on your local machine. I won't go through the Rig setup as it is straightforward, but be sure to configure your extension before using it in the Rig: go to your [Twitch developer console](https://dev.twitch.tv/console) and make sure that the "Testing Base URI" is set to `http://localhost:3000` (the default for a NextJS project).
 
-![Twitch Extension configuration panel](./images/twitch_rig_config.png)
+![Twitch Extension configuration panel](/images/twitch_rig_config.png)
 
 Once you have your project in your Rig, make sure you tells it the right command for Front End, i.e. `npm run dev` (or `yarn dev`).
 
-![Example Twitch Rig configuration](./images/twitch_rig_commands.png)
+![Example Twitch Rig configuration](/images/twitch_rig_commands.png)
 
 You should be able to launch "views" inside the rig and play with your extension!
 
-![Example Twitch Rig usage](./images/twitch_rig.png)
+![Example Twitch Rig usage](/images/twitch_rig.png)
 
 Once your done with your developments, just use the `yarn release` command and you'll be ready to upload your `bundle.zip` on the console, in the "Files" tab.
 
