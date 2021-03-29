@@ -1,0 +1,11 @@
+a {
+  text-decoration: none !important;
+}
+
+.next-image {
+  width: "80%";
+}
+
+.prose pre {
+  background-color: whitesmoke;
+}

@@ -11,6 +11,8 @@ static/search.json
 NOTES.md
 
 # Custom
-draft
-.now
+.next
+.vercel
 .vscode
+draft
+public/feed.xml
