@@ -2,11 +2,11 @@
 title: "Pipfile and Pipenv : the future of Python dependencies management"
 date: 2017-11-07
 description: How I learn to stop worrying and love pip (again)
-tags: Python, Pip, Pipenv, Packages Management
+tag: Python, Pip, Pipenv, Packages Management
 author: Julien
 ---
 
-Yes, I heared you. pip *is* a great tool and has been around for quite a long time. But for 3 years or so, people (contributors) have been looking for a way to enhance our packages management experience. Think about the superpowers of *composer*, *npm* (or better, *yarn*) in your favorite tool.
+Yes, I heared you. pip _is_ a great tool and has been around for quite a long time. But for 3 years or so, people (contributors) have been looking for a way to enhance our packages management experience. Think about the superpowers of _composer_, _npm_ (or better, _yarn_) in your favorite tool.
 
 What they offer is (more or less) a replacement for the age-old requirements.txt file : the **Pipfile**.
 
@@ -14,11 +14,11 @@ What they offer is (more or less) a replacement for the age-old requirements.txt
 
 The new [Pipfile](https://github.com/pypa/pipfile) differs from the old-style requirements file in several ways :
 
-* It uses *TOML* syntax to allow more configuration;
+- It uses _TOML_ syntax to allow more configuration;
 
-* It declares dependencies groups (i.e. a default one plus a development one for... development packages) so you don't have to split your requirements into several files.
+- It declares dependencies groups (i.e. a default one plus a development one for... development packages) so you don't have to split your requirements into several files.
 
-* It comes with a Pipfile.lock file which pins the versions of your packages, in addition to some security bonus.
+- It comes with a Pipfile.lock file which pins the versions of your packages, in addition to some security bonus.
 
 Let’s have a look at a minimal, simple Pipfile:
 
@@ -40,11 +40,11 @@ Let’s have a look at a minimal, simple Pipfile:
 
 What do we have here :
 
-* First we declare the source that pip is going to use. Typically, it will be *pypi*.
+- First we declare the source that pip is going to use. Typically, it will be _pypi_.
 
-* Then we declare our Python version requirement.
+- Then we declare our Python version requirement.
 
-* Finally, we declare our packages and development packages.
+- Finally, we declare our packages and development packages.
 
 You got it ? Now here is the example Pipfile from the official repository on GitHub :
 
@@ -70,21 +70,17 @@ nose = '*'
 unittest2 = {version = ">=1.0,<3.0", markers="python_version < '2.7.9' or (python_version >= '3.0' and python_version < '3.4')"}
 ```
 
-See ? With the TOML syntax, you can be very specific about the version, source or os-variant you want to use. Note that all packages versions are not pinned, even if it *was* [the preferred way of declaring dependencies](http://nvie.com/posts/pin-your-packages/).
+See ? With the TOML syntax, you can be very specific about the version, source or os-variant you want to use. Note that all packages versions are not pinned, even if it _was_ [the preferred way of declaring dependencies](http://nvie.com/posts/pin-your-packages/).
 
 Pip is going to support this specification in the future with a syntax like pip install -p Pipfile. Let's see how we can use all this magical stuff today.
 
 ## Back to the Future
 
-Meet [Pipenv](https://docs.pipenv.org/) (yep, that’s another project from [Kenneth Reitz](https://twitter.com/kennethreitz), the guy behind [httpbin](http://httpbin.org/), [pep8.org](https://gist.github.com/pep8.org), and, yes, [request](http://docs.python-requests.org/en/master/#)).
-
-<blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">the fuck when you realize <a href="https://twitter.com/kennethreitz?ref_src=twsrc%5Etfw">@kennethreitz</a> &#39;s pipenv just dropped a 🎃 in your shell. Made my day.</p>&mdash; Julien Tanay (@Djiit) <a href="https://twitter.com/Djiit/status/925350303863656448?ref_src=twsrc%5Etfw">October 31, 2017</a></blockquote>
-
-Pipenv is the current preferred implementation of Pipfile and allows you to manage your virtualenvs like a boss. It aims to ease and enhance how we manage our python environments (a la *virtualenvwrapper* or *pyenv*, but with *pip* skills).
+Meet [Pipenv](https://docs.pipenv.org/) (yep, that’s another project from [Kenneth Reitz](https://twitter.com/kennethreitz), the guy behind [httpbin](http://httpbin.org/), [pep8.org](https://gist.github.com/pep8.org), and, yes, [request](http://docs.python-requests.org/en/master/#)). Pipenv is the current preferred implementation of Pipfile and allows you to manage your virtualenvs like a boss. It aims to ease and enhance how we manage our python environments (a la _virtualenvwrapper_ or _pyenv_, but with _pip_ skills).
 
 Here is a simple workflow :
 
-1- In your project directory, create your *virtualenv*. Pipenv will store it in a centralized place instead of your project root directory :
+1- In your project directory, create your _virtualenv_. Pipenv will store it in a centralized place instead of your project root directory :
 
 ```sh
 pipenv --three # Yeah, 3 is the way to go
@@ -97,17 +93,17 @@ pipenv install flask
 pipenv install --dev pytest # Notice the --dev flag
 ```
 
-3- Use your *virtualenv*. It will open a new shell :
+3- Use your _virtualenv_. It will open a new shell :
 
 ```sh
 pipenv shell
 ```
 
-Note that we were not *in* our virtualenv before this command. Everything is handled for us by *Pipenv*.
+Note that we were not _in_ our virtualenv before this command. Everything is handled for us by _Pipenv_.
 
 From this point, you are good to go. Pipenv will help you manage your environment throughout your development process.
 
-Finally, you shouldn’t be worried about compatibility issues with your deployment server (which is surely still using *pip* as you are reading this) : you can generate a good old requirements.txt by running :
+Finally, you shouldn’t be worried about compatibility issues with your deployment server (which is surely still using _pip_ as you are reading this) : you can generate a good old requirements.txt by running :
 
 ```sh
 pipenv lock -r > requirements.txt

@@ -2,7 +2,7 @@
 title: Documenting your Flask-powered API like a boss
 date: 2017-11-27
 description: How we built a solid documentation for our Flask-powered micro-services APIs.
-tags: Python, Flask, OpenAPI, Swagger, Documentation
+tag: Python, Flask, OpenAPI, Swagger, Documentation
 author: Julien
 ---
 
@@ -92,7 +92,7 @@ You will end up with a valid JSON API specification. Now, let’s see how to boo
 
 A really cool tool to do that is the [ReDoc](https://github.com/Rebilly/ReDoc) Javascript library from the guys at [APIs.guru](https://apis.guru/). We’ll use it to present the generated JSON specification in a convenient way.
 
-![Example of a HTML documentation with ReDoc.](https://cdn-images-1.medium.com/max/3292/1*bXib0QoiJR02O7MXBxgH9g.png)*Example of a HTML documentation with ReDoc.*
+![Example of a HTML documentation with ReDoc.](https://cdn-images-1.medium.com/max/3292/1*bXib0QoiJR02O7MXBxgH9g.png)_Example of a HTML documentation with ReDoc._
 
 ReDoc is basically a single, minified JS file you can include in a bare index.html file and tell it where your swagger.json is located. It uses a really neat 3 columns design : a navigation sidebar, a wide center section with your API endpoints definitions and a third column dedicated to requests or responses samples and examples.
 
@@ -101,13 +101,18 @@ ReDoc is basically a single, minified JS file you can include in a bare index.ht
 <html>
   <head>
     <title>Cool API Documentation</title>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style> body { margin: 0; padding: 0; } </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
   </head>
   <body>
-    <redoc spec-url='./swagger.json' hide-loading></redoc>
-    <script src="https://rebilly.github.io/ReDoc/releases/latest/redoc.min.js"> </script>
+    <redoc spec-url="./swagger.json" hide-loading></redoc>
+    <script src="https://rebilly.github.io/ReDoc/releases/latest/redoc.min.js"></script>
   </body>
 </html>
 ```
