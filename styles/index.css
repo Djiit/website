@@ -5,3 +5,7 @@ a {
 .next-image {
   width: "80%";
 }
+
+.prose pre {
+  background-color: whitesmoke;
+}

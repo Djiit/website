@@ -82,20 +82,20 @@ Here is a simple workflow :
 
 1- In your project directory, create your _virtualenv_. Pipenv will store it in a centralized place instead of your project root directory :
 
-```sh
+```shell
 pipenv --three # Yeah, 3 is the way to go
 ```
 
 2- Install some dependencies :
 
-```sh
+```shell
 pipenv install flask
 pipenv install --dev pytest # Notice the --dev flag
 ```
 
 3- Use your _virtualenv_. It will open a new shell :
 
-```sh
+```shell
 pipenv shell
 ```
 
@@ -105,7 +105,7 @@ From this point, you are good to go. Pipenv will help you manage your environmen
 
 Finally, you shouldn’t be worried about compatibility issues with your deployment server (which is surely still using _pip_ as you are reading this) : you can generate a good old requirements.txt by running :
 
-```sh
+```shell
 pipenv lock -r > requirements.txt
 ```
 
