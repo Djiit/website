@@ -5,7 +5,7 @@ import config from "./config";
 
 const YEAR = new Date().getFullYear();
 
-export default () => (
+const Footer = () => (
   <small className="mt-24 flex flex-wrap">
     <div className="flex-grow">
       <time>{YEAR}</time> © {config.author}
@@ -32,3 +32,5 @@ export default () => (
     </div>
   </small>
 );
+
+export default Footer;

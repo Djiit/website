@@ -1,7 +1,9 @@
 module.exports = {
   author: "Julien Tanay",
+  username: "djiit",
   description:
     "Thoughts about Software Development, DevOps culture, creative thinking and getting shit done.",
+  keywords: "Julien, Tanay, developer, devops, engineering, manager, blog",
   domain: "julientanay.com",
   projects: [
     {
