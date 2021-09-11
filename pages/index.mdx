@@ -1,0 +1,48 @@
+---
+type: page
+title: About
+date: 2020-01-01
+---
+
+import ContactForm from "../components/ContactForm";
+import config from "../config";
+
+# Julien Tanay
+
+## Hey!
+
+Hi, I'm Julien. I'm a Dev+Ops guy currently working as an Engineering Manager at [Doctolib](https://www.doctolib.fr) from Paris and Nantes. I'm a <i>casual speaker</i> (mostly about DevOps culture), I'm always looking for great [challenges](#projects), sometimes for awesome [clients and partners](#clients). Check out my [blog](/blog)!
+
+## Projects
+
+<div className="flex flex-wrap">
+  {config.projects.map((project) => (
+    <div className="w-1/2 md:w-1/4 p-4 max-w-sm" key={project.name}>
+      <a href={project.link}>
+        {project.name}
+        <img src={project.image} alt={project.name} />
+      </a>
+      <div>
+        {project.tags.map((tag) => (
+          <span className="border rounded p-1 text-xs text-gray-600 bg-gray-100 m-1">#{tag}</span>
+        ))}
+        </div>
+    </div>
+
+))}
+
+</div>
+
+## Clients
+
+<div className="flex">
+  {config.clients.map((client) => (
+    <div className="w-full md:w-1/3 p-4" key={client.name}>
+      <img src={client.image} alt={client.name} />
+    </div>
+  ))}
+</div>
+
+## Contact
+
+<ContactForm />
