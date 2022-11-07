@@ -1,0 +1,66 @@
+---
+title: A simple yet production ready NodeJS logger
+publishedAt: '2020-07-27'
+summary: A dead-simple logger for NodeJS that ouputs JSON in a standard format
+tag: Code Snippet, NodeJS, Logging, Pino, Elastic, ECS, ELK
+author: Julien
+---
+
+Here is my go-to snippet for a consistent, production-ready logger in NodeJS or Typescript :
+
+logger.js
+
+```js
+import pino from "pino";
+import ecsFormat from "@elastic/ecs-pino-format"; // Optional
+
+export const logger = pino({
+  ...ecsFormat(), // Optional
+  level: process.env.LOG_LEVEL || "info",
+  prettyPrint:
+    process.env.NODE_ENV !== "production" ||
+    process.env.LOG_PRETTY_PRINT === "true",
+});
+```
+
+What's inside ?
+
+- **JSON logging**: It logs everything in a JSON format. Having JSON logs is extremely useful when you want to parse them with e.g. [Papertrail](https://papertrailapp.com) or any other log-management service.
+
+- **Debug Context**: It supports adding context objects with your message (yeah, Pino is really awesome).
+- **Great Developer Experience**: When running on your local machine, it will display colored, well-spaced logs for a better developer experience, thanks to `pino-pretty`.
+- **Default log level**: Using default level "info" avoid spamming a new environment with tons of logs if you forget to set the variable.
+- **Nice trick**: The `LOG_PRETTY_PRINT` variable allows us to enable pretty-printing even in production environement. Useful for quick debugging tasks.
+- **Optional - ECS format**: I often use Elastic Common Schema as a logging format. It comes with great defaults, and is of course ideal if you are sending your logs to an ELK stack.
+
+That's it! It just works :)
+
+### Usage
+
+Add its dependencies to your project :
+
+```shell
+npm i pino
+npm i -D pino-pretty
+# Optional : Use the Elastic Common Format
+npm i @elastic/ecs-pino-format
+```
+
+And use it like this :
+
+```js
+import { logger } from "logger";
+
+// Simplest example
+logger.info("Yay");
+
+// Add more context
+const ctx = { user: "foo", action: "delete", reason: "whatever" };
+logger.debug(ctx, "User deleted");
+```
+
+### Links
+
+- [PinoJS](https://github.com/pinojs/pino)
+- [Pino Pretty](https://github.com/pinojs/pino-pretty)
+- [Elastic Common Schema configuration for PinoJS](https://github.com/elastic/ecs-logging-js/tree/master/loggers/pino)

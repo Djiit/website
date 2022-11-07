@@ -1,45 +1,26 @@
 {
-  "name": "website",
   "private": true,
   "scripts": {
-    "prebuild": "node ./scripts/gen-rss.js",
+    "dev": "next dev",
     "build": "next build",
-    "dev": "next"
+    "start": "next start"
   },
   "dependencies": {
-    "@tailwindcss/forms": "^0.3.3",
-    "next": "^11.1.2",
-    "nextra": "^1.1.0",
-    "nextra-theme-blog": "^0.1.6",
-    "nextra-theme-docs": "^1.2.6",
-    "prop-types": "^15.7.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-ga": "^3.3.0",
-    "react-icons": "^4.2.0"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^13.1.0",
-    "@types/node": "^16.9.1",
-    "@types/react": "^17.0.20",
-    "autoprefixer": "^10.3.4",
-    "conventional-changelog-gitmoji": "^0.2.5",
-    "eslint": "^7.32.0",
-    "eslint-config-next": "^11.1.2",
-    "gray-matter": "^4.0.3",
-    "lint-staged": "^11.1.2",
-    "postcss": "^8.3.6",
-    "prettier": "^2.4.0",
-    "rss": "^1.2.2",
-    "simple-git-hooks": "^2.6.1",
-    "tailwindcss": "^2.2.15",
-    "typescript": "^4.4.3"
-  },
-  "simple-git-hooks": {
-    "pre-commit": "yarn lint-staged",
-    "commit-msg": "yarn commitlint --edit $1"
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,css,mdx,json}": "prettier --write"
+    "@tailwindcss/postcss": "4.0.0-alpha.13",
+    "@types/node": "20.11.17",
+    "@types/react": "18.2.55",
+    "@types/react-dom": "18.2.19",
+    "@vercel/analytics": "^1.1.3",
+    "@vercel/speed-insights": "^1.0.9",
+    "geist": "1.2.2",
+    "next": "canary",
+    "next-mdx-remote": "^4.4.1",
+    "postcss": "^8.4.35",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-icons": "^5.5.0",
+    "sugar-high": "^0.6.0",
+    "tailwindcss": "4.0.0-alpha.13",
+    "typescript": "5.3.3"
   }
 }
