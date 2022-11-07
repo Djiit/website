@@ -1,5 +1,11 @@
 import { HiOutlineMail } from "react-icons/hi";
-import { SiTwitter, SiLinkedin, SiGithub, SiKeybase } from "react-icons/si";
+import {
+  SiTwitter,
+  SiLinkedin,
+  SiGithub,
+  SiKeybase,
+  SiMastodon,
+} from "react-icons/si";
 
 import config from "./config";
 
@@ -10,8 +16,10 @@ const Footer = () => (
     <div className="flex-grow">
       <time>{YEAR}</time> © {config.author}
     </div>
-    {/* linkedin, github */}
     <div className="flex place-items-center space-x-1">
+      <a rel="me" href="https://mastodon.social/@djiit">
+        <SiMastodon />
+      </a>
       <a href="https://twitter.com/djiit">
         <SiTwitter />
       </a>
