@@ -13,8 +13,8 @@ const navItems: {
   "/blog": {
     name: "blog",
   },
-  "https://notes.djiit.dev/public/links": {
-    name: "links",
+  "https://sessionize.com/djiit/": {
+    name: "talks",
     external: true,
   },
 };

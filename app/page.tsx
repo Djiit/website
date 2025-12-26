@@ -1,4 +1,4 @@
-import { BlogPosts } from "app/components/posts";
+import Link from "next/link";
 
 export default function Page() {
   return (
@@ -11,9 +11,7 @@ export default function Page() {
         Paris and Nantes. I'm a casual speaker, former manager and everyday
         project hacker.
       </p>
-      <div className="my-8">
-        <BlogPosts />
-      </div>
+      Checkout some of my latest <Link href="/blog" className="underline">blog posts</Link> and <Link href="https://sessionize.com/djiit/" className="underline">talks</Link>.
     </section>
   );
 }

@@ -41,7 +41,7 @@ export default function Footer() {
     },
   ];
   return (
-    <footer className="mb-16">
+    <footer className="mt-auto my-8">
       <div className="flex items-center justify-between">
         <p className="text-neutral-600 dark:text-neutral-300">
           © {new Date().getFullYear()} Julien Tanay
