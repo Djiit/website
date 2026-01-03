@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/opengraph-image.png",
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
         alt: "Julien Tanay",
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     title: "Julien Tanay",
     description:
       "Dev+Ops Staff SRE from Paris and Nantes. Sharing insights on infrastructure, DevOps, and modern development practices.",
-    images: ["/twitter-image.png"],
+    images: ["/twitter-image"],
     creator: "@djiit",
   },
   robots: {
