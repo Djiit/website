@@ -22,5 +22,6 @@
     "sugar-high": "^0.9.5",
     "tailwindcss": "4.1.18",
     "typescript": "5.9.3"
-  }
+  },
+  "packageManager": "pnpm@10.25.0"
 }
