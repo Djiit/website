@@ -16,14 +16,48 @@ export const metadata: Metadata = {
     default: "Julien Tanay",
     template: "%s | Julien Tanay",
   },
-  description: "Julien Tanay",
+  description:
+    "Dev+Ops Staff SRE from Paris and Nantes. Speaker, former manager, and open-source contributor. Writing about DevOps, Python, Docker, and modern infrastructure.",
+  keywords: [
+    "Staff",
+    "SRE",
+    "DevOps",
+    "Infrastructure",
+    "Docker",
+    "Cloud",
+    "Open Source",
+  ],
+  authors: [
+    {
+      name: "Julien Tanay",
+      url: baseUrl,
+    },
+  ],
+  creator: "Julien Tanay",
   openGraph: {
     title: "Julien Tanay",
-    description: "Julien Tanay",
+    description:
+      "Dev+Ops Staff SRE from Paris and Nantes. Sharing insights on infrastructure, DevOps, and modern development practices.",
     url: baseUrl,
     siteName: "Julien Tanay",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Julien Tanay",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Julien Tanay",
+    description:
+      "Dev+Ops Staff SRE from Paris and Nantes. Sharing insights on infrastructure, DevOps, and modern development practices.",
+    images: ["/twitter-image.png"],
+    creator: "@djiit",
   },
   robots: {
     index: true,

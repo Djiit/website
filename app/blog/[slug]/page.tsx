@@ -1,7 +1,13 @@
 import { notFound } from "next/navigation";
+import type { Metadata, ResolvingMetadata } from "next";
 import { CustomMDX } from "app/components/mdx";
 import { formatDate, getBlogPosts } from "app/blog/utils";
 import { baseUrl } from "app/sitemap";
+
+type Props = {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+};
 
 export async function generateStaticParams() {
   let posts = getBlogPosts();
@@ -11,34 +17,54 @@ export async function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }) {
-  let post = getBlogPosts().find((post) => post.slug === params.slug);
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getBlogPosts().find((post) => post.slug === slug);
+
   if (!post) {
-    return;
+    return {};
   }
 
-  let {
+  const {
     title,
     publishedAt: publishedTime,
     summary: description,
     image,
   } = post.metadata;
-  let ogImage = image
-    ? image
-    : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
+
+  const ogImage = image
+    ? `${baseUrl}${image}`
+    : `${baseUrl}/api/og?title=${encodeURIComponent(title)}`;
+
+  const parentOpenGraph = (await parent).openGraph || {};
 
   return {
     title,
     description,
+    authors: [
+      {
+        name: "Julien Tanay",
+        url: baseUrl,
+      },
+    ],
+    creator: "Julien Tanay",
     openGraph: {
+      ...parentOpenGraph,
       title,
       description,
       type: "article",
       publishedTime,
-      url: `${baseUrl}/blog/${post.slug}`,
+      authors: ["Julien Tanay"],
+      url: `${baseUrl}/blog/${slug}`,
       images: [
         {
           url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: title,
         },
       ],
     },
@@ -47,6 +73,7 @@ export function generateMetadata({ params }) {
       title,
       description,
       images: [ogImage],
+      creator: "@djiit",
     },
   };
 }
