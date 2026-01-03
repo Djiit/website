@@ -9,6 +9,8 @@ import Footer from "./components/footer";
 import { baseUrl } from "./sitemap";
 // import { onKonami } from "./konami";
 import { KonamiWrapper } from "./KonamiWrapper";
+import { ThemeProvider } from "./components/theme-provider";
+import { ThemeScript } from "./components/theme-script";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -88,15 +90,20 @@ export default function RootLayout({
         GeistMono.variable
       )}
     >
+      <head>
+        <ThemeScript />
+      </head>
       <body className="antialiased flex flex-col flex-1 max-w-xl mx-4 mt-8 lg:mx-auto">
-        <KonamiWrapper />
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
-          <Navbar />
-          {children}
-          <Footer />
-          <Analytics />
-          <SpeedInsights />
-        </main>
+        <ThemeProvider>
+          <KonamiWrapper />
+          <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
+            <Navbar />
+            {children}
+            <Footer />
+            <Analytics />
+            <SpeedInsights />
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );
