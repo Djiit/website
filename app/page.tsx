@@ -18,7 +18,7 @@ export default function Page() {
             Hello, I'm Julien
           </h1>
           <p className="text-sm text-neutral-600 dark:text-neutral-400">
-            Staff SRE & Developer
+            DevEx Engineer
           </p>
         </div>
       </div>
@@ -27,7 +27,7 @@ export default function Page() {
         Paris and Nantes. I'm a casual speaker, former manager and everyday
         project hacker.
       </p>
-      Checkout some of my latest <Link href="/blog" className="underline">blog posts</Link> and <Link href="https://sessionize.com/djiit/" className="underline">talks</Link>.
+      Checkout some of my latest <Link href="https://sessionize.com/djiit/" className="underline">talks</Link>.
     </section>
   );
 }

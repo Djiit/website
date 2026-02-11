@@ -10,9 +10,9 @@ const navItems: {
   "/": {
     name: "home",
   },
-  "/blog": {
-    name: "blog",
-  },
+  // "/blog": {
+  //   name: "blog",
+  // },
   "https://sessionize.com/djiit/": {
     name: "talks",
     external: true,
